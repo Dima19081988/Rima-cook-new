@@ -2,6 +2,10 @@ import { db } from './config/db.js';
 import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
+import recipesRouter from './routes/recipes.js';
+import categoriesRouter from './routes/categories.js';
+import homeRouter from './routes/home.js';
+
 
 const app = express()
 const PORT = process.env.PORT || 3000;
@@ -9,6 +13,10 @@ const PORT = process.env.PORT || 3000;
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
+
+app.use('/api/home', homeRouter);
+app.use('/api/recipes', recipesRouter);
+app.use('/api/categories', categoriesRouter);
 
 app.get('/api/health', (req, res) => {
     res.json({ status: 'OK', message: 'Server is running!' });
