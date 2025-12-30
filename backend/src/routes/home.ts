@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { RecipeService } from "../services/recipeService.js";
-import type { HomeData } from "../models/types/recipe.js";
+import type { HomeData } from "../models/types/index.js";
 
 const router = Router();
 

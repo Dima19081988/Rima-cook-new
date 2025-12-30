@@ -22,7 +22,7 @@ export interface Category {
 
 export interface HomeData {
     popular: Recipe[];
-    category: CategoryPreview[];
+    categories: CategoryPreview[];
 }
 
 export interface CategoryPreview {
@@ -31,4 +31,23 @@ export interface CategoryPreview {
     slug: string;
     color: string;
     recipe_ids: number[];
+}
+
+export interface CreateRecipeData {
+    title: string,
+    slug: string,
+    description?: string;
+    cooking_time?: string;
+    servings?: number;
+    difficulty?: 'easy' | 'medium' | 'hard';
+    category_ids?: number[];
+}
+
+export interface UpdateRecipeData {
+    title: string;
+    description?: string;
+    cooking_time?: string;
+    servings?: number;
+    difficulty?: 'easy' | 'medium' | 'hard';
+    category_ids?: number[];
 }

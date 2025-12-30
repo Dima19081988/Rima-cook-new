@@ -5,6 +5,7 @@ import cors from 'cors';
 import recipesRouter from './routes/recipes.js';
 import categoriesRouter from './routes/categories.js';
 import homeRouter from './routes/home.js';
+import adminRouter from './routes/admin.js';
 
 
 const app = express()
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use('/api/home', homeRouter);
 app.use('/api/recipes', recipesRouter);
 app.use('/api/categories', categoriesRouter);
+app.use('/api/admin', adminRouter);
 
 app.get('/api/health', (req, res) => {
     res.json({ status: 'OK', message: 'Server is running!' });

@@ -1,5 +1,5 @@
 import { db } from "../config/db.js";
-import type { Category } from "../models/types/category.js";
+import type { Category } from "../models/types/index.js";
 
 export class CategoryService {
     static async getAllCategories(): Promise<Category[]> {
