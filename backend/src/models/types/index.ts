@@ -41,6 +41,7 @@ export interface CreateRecipeData {
     servings?: number;
     difficulty?: 'easy' | 'medium' | 'hard';
     category_ids?: number[];
+    image_url?: string;
 }
 
 export interface UpdateRecipeData {
@@ -50,4 +51,5 @@ export interface UpdateRecipeData {
     servings?: number;
     difficulty?: 'easy' | 'medium' | 'hard';
     category_ids?: number[];
+    image_url?: string;
 }

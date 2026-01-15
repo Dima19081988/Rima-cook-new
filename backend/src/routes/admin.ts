@@ -1,8 +1,14 @@
 import { Router } from "express";
+import multer from "multer";
+import { requireAuth } from "../middleware/auth.js";
 import { RecipeService } from "../services/recipeService.js";
+import { uploadToS3 } from "../services/s3.js";
 import type { CreateRecipeData, UpdateRecipeData } from "../models/types/index.js";
 
 const router = Router();
+const upload = multer({ storage: multer.memoryStorage() });
+
+router.use(requireAuth);
 
 router.get('/recipes', async (req, res) => {
     try {
@@ -14,9 +20,17 @@ router.get('/recipes', async (req, res) => {
     }
 });
 
-router.post('/recipes', async (req, res) => {
+router.post('/recipes', upload.single('image'), async (req, res) => {
     try {
         const recipeData: CreateRecipeData = req.body;
+
+        if (req.file) {
+            recipeData.image_url = await uploadToS3(
+                req.file.buffer,
+                req.file.originalname || 'image.jpg'
+            );
+        }
+
         const recipe = await RecipeService.create(recipeData);
         res.status(201).json({ message: '✅ Рецепт создан!', recipe });
     } catch (error) {
@@ -29,6 +43,14 @@ router.put('/recipes/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id);
         const data: UpdateRecipeData = req.body;
+
+        if (req.file) {
+            data.image_url = await uploadToS3(
+                req.file.buffer,
+                req.file.originalname || 'image.jpg'
+            );
+        }
+
         const recipe = await RecipeService.update(id, data);
         res.json({ message: '✅ Обновлено!', recipe });
     } catch (error) {
