@@ -2,11 +2,12 @@ import { db } from './config/db.js';
 import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
+import session from 'express-session';
 import recipesRouter from './routes/recipes.js';
 import categoriesRouter from './routes/categories.js';
 import homeRouter from './routes/home.js';
 import adminRouter from './routes/admin.js';
-
+import authRouter from './routes/auth.js';
 
 const app = express()
 const PORT = process.env.PORT || 3000;
@@ -16,13 +17,26 @@ app.use(cors({
   origin: 'http://localhost:5173',
   credentials: true
 }));
+
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'fallback',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { 
+    secure: false, 
+    maxAge: 24 * 60 * 60 * 1000,
+    httpOnly: true,
+    sameSite: 'lax'
+  }
+}));
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+app.use('/api/auth', authRouter);
 app.use('/api/home', homeRouter);
 app.use('/api/recipes', recipesRouter);
 app.use('/api/categories', categoriesRouter);
-
 app.use('/api/admin', adminRouter);
 
 app.get('/api/health', (req, res) => {

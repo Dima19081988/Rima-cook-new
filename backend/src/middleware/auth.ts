@@ -7,6 +7,6 @@ export const requireAuth = (req: Request, res: Response, next: NextFunction) => 
     if (!authHeader || !adminKey || authHeader !== `Bearer ${adminKey}`) {
         return res.status(401).json({ error: 'Доступ запрещён. Требуется авторизация.' });
     }
-
+    
     next();
 };
