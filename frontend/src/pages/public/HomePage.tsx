@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { recipesApi } from "../../api/recipes";
 import type { HomeData } from "../../types/recipe";
+import RecipeCard from "../../components/ui/RecipeCard/RecipeCard";
 import styles from './HomePage.module.css';
 
 export default function HomePage() {
     const [data, setData] = useState<HomeData | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+
 
     useEffect(() => {
         recipesApi.getHome()
@@ -16,7 +18,8 @@ export default function HomePage() {
             .finally(() => setLoading(false))
     }, []);
 
-    if (!data) return <div>Загрузка...</div>;
+
+    if (!data) return <div>Нет данных</div>;
     if (loading) return <div className={styles.loading}>🍳 Загрузка рецептов...</div>
     if (error) return <div className={styles.error}>{error}</div>
 
@@ -36,15 +39,11 @@ export default function HomePage() {
                 <h1>🍴 Популярные рецепты ({data.popular.length})</h1>
                 <div className={styles.grid}>
                     {data.popular.map(recipe => (
-                        <article key={recipe.id} className={styles.card}>
-                            <h2>{recipe.title}</h2>
-                            {recipe.description && <p>{recipe.description}</p>}
-                            <div className={styles.recipeMeta}>
-                                {recipe.cooking_time && <span>⏱️ {recipe.cooking_time} мин</span>}
-                                {recipe.servings && <span>👥 {recipe.servings}</span>}
-                                {recipe.difficulty && <span>⭐ {recipe.difficulty}</span>}
-                            </div>
-                        </article>
+                        <RecipeCard
+                            key={recipe.id}
+                            recipe={recipe}
+                            mode="preview"
+                        />
                     ))}
                 </div>
             </section>

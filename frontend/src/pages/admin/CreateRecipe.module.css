@@ -1,0 +1,440 @@
+.page {
+    min-height: 100vh;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+.card h1 {
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 2rem;
+}
+
+.error {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.field label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.input, .textarea, .select, .multiSelect {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input:focus, .textarea:focus, .select:focus, .multiSelect:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.submitBtn, .cancelBtn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: 1;
+}
+
+.submitBtn {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.submitBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.cancelBtn {
+    background: #6b7280;
+    color: white;
+}
+
+.cancelBtn:hover {
+    background: #4b5563;
+}
+
+.fileInput {
+    padding: 12px;
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    background: #f9fafb;
+}
+
+.fileInput:focus {
+    border-color: #10b981;
+    background: white;
+}
+
+.imagePreview {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.imagePreview img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.currentImage, .imagePreview {
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.currentImage img, .imagePreview img {
+    max-width: 200px;
+    max-height: 150px;
+    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+}
+
+.currentImage small, .imagePreview small {
+    display: block;
+    margin-top: 0.25rem;
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+/* В конец файла CreateRecipe.module.css */
+.multipleFilesInfo {
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid #0ea5e9;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.addBtn {
+    margin-top: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.addBtn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.addBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.imagesGallery {
+    margin-top: 24px;
+    padding: 20px;
+    background: #fafafa;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.imagesGallery h4 {
+    margin: 0 0 16px 0;
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.imagesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 12px;
+}
+
+.imageItem {
+    text-align: center;
+    padding: 12px 8px 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.imageItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #10b981;
+}
+
+.imageThumb {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.imageLabel {
+    font-size: 11px;
+    color: #6b7280;
+    font-weight: 500;
+    display: block;
+}
+
+.stepsSection {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+}
+
+.stepsSection h3 {
+    margin: 0 0 1.5rem 0;
+    color: #1e293b;
+    font-size: 1.3rem;
+}
+
+.newStepForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.addStepBtn {
+    grid-column: 1 / -1;
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.addStepBtn:hover:not(:disabled) {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+.addStepBtn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.stepsList {
+    margin-top: 1.5rem;
+}
+
+.stepsList h4 {
+    margin: 0 0 1rem 0;
+    color: #1e293b;
+}
+
+.stepsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.stepItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.2rem;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid #3b82f6;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    transition: all 0.2s;
+}
+
+.stepItem:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+}
+
+.stepContent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.stepNumber {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.stepContent strong {
+    display: block;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.stepContent p {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.deleteBtn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.deleteBtn:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
+
+.stepInfo {
+    flex: 1;
+    margin-left: 1rem;
+}
+
+.stepPreviewWrapper {
+    margin-top: 0.5rem;
+}
+
+.stepPreview {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #10b981;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+.stepActions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    min-width: 120px;
+}
+
+.stepImageInput {
+    font-size: 0.85rem;
+    padding: 0.3rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: white;
+}
+
+.stepImageInput:hover {
+    border-color: #10b981;
+}
+
+.smallDelete {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    padding: 0;
+}
+.imageItem {
+    position: relative;
+}
+
+
+.stepsSection { margin: 2rem 0; padding: 1.5rem; background: #f8fafc; border-radius: 12px; }
+.newStepForm { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.stepsList { margin-top: 1rem; }
+.stepsGrid { display: flex; flex-direction: column; gap: 0.75rem; }
+.stepItem { display: flex; justify-content: space-between; padding: 1.2rem; background: white; border-radius: 8px; border-left: 4px solid #3b82f6; }
+.stepContent { display: flex; gap: 1rem; align-items: flex-start; flex: 1; }
+.stepNumber { width: 32px; height: 32px; background: #3b82f6; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; }
+.stepInfo { flex: 1; }
+.stepPreviewWrapper { margin-top: 0.5rem; }
+.stepPreview { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; border: 2px solid #10b981; box-shadow: 0 2px 8px rgba(16,185,129,0.2); }
+.stepActions { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; min-width: 120px; }
+.stepImageInput { font-size: 0.85rem; padding: 0.3rem; border: 1px solid #d1d5db; border-radius: 6px; background: white; }
+.stepImageInput:hover { border-color: #10b981; }
+.deleteBtn { background: #ef4444; color: white; border: none; width: 36px; height: 36px; border-radius: 8px; cursor: pointer; font-size: 1.1rem; }
+.deleteBtn:hover { background: #dc2626; }

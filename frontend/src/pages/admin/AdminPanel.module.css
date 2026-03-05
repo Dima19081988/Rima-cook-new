@@ -1,0 +1,215 @@
+.admin {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 3px solid #f0f0f0;
+}
+
+.header h1 {
+    margin: 0;
+    color: #1e293b;
+    font-size: 2rem;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.newBtn, .editBtn, .logoutBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.newBtn {
+    background: #10b981;
+    color: white;
+}
+
+.newBtn:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+.editBtn {
+    background: #3b82f6;
+    color: white;
+    font-size: 0.9rem;
+    padding: 6px 12px;
+}
+
+.editBtn:hover {
+    background: #2563eb;
+}
+
+.logoutBtn {
+    background: #ef4444;
+    color: white;
+}
+
+.logoutBtn:hover {
+    background: #dc2626;
+}
+
+.stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.stat {
+    background: #f8fafc;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+}
+
+.table {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+th {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #475569;
+}
+
+tr:hover {
+    background: #f8fafc;
+}
+
+.loading {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+}
+
+.search {
+    margin: 1rem 0;
+    padding: 0 1rem;
+}
+
+.searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.75rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.actionsCell {
+    white-space: nowrap;
+}
+
+.editBtn, .delBtn {
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+.editBtn {
+    background: #3b82f6;
+    color: white;
+}
+
+.delBtn {
+    background: #ef4444;
+    color: white;
+}
+
+.delBtn:hover:not(:disabled) {
+    background: #dc2626;
+}
+
+.delBtn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+.empty {
+    text-align: center;
+    padding: 3rem;
+    color: #64748b;
+    font-size: 1.125rem;
+}
+
+.imageCell {
+    width: 60px;
+    height: 50px;
+    padding: 4px;
+    vertical-align: middle;
+}
+
+.recipeImage {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    display: block;
+}
+
+.recipeImage:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+}
+
+.noImage {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    border: 1px dashed #ccc;
+    border-radius: 6px;
+    font-size: 18px;
+    color: #999;
+}
+
+.refreshBtn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
