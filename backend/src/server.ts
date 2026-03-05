@@ -17,6 +17,8 @@ app.use(cors({
   origin: 'http://localhost:5173',
   credentials: true
 }));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 app.use(session({
   secret: process.env.SESSION_SECRET || 'fallback',
@@ -29,9 +31,6 @@ app.use(session({
     sameSite: 'lax'
   }
 }));
-
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 app.use('/api/auth', authRouter);
 app.use('/api/home', homeRouter);

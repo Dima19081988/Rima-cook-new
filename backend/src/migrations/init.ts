@@ -55,13 +55,3 @@ export async function initDB() {
 
     console.log('✅ Tables created!');
 };
-
-//     await db.query(`
-    //     INSERT INTO categories (name, slug, color) VALUES
-    //     ('Супы', 'supy', '#ff6b6b'),
-    //     ('Салаты', 'salaty', '#4ecdc4'),
-    //     ('Выпечка', 'vypechka', '#45b7d1'),
-    //     ('Горячее', 'goryachee', '#f9ca24'),
-    //     ('Десерты', 'deserty', '#ff9ff3')
-    //     ON CONFLICT (slug) DO NOTHING
-    // `);

@@ -13,7 +13,22 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:slug', async (req, res) => {
+router.get('/:id', async (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        const recipe = await RecipeService.getById(id);
+
+        if (!recipe) {
+            return res.status(404).json({ error: 'Рецепт не найден' });
+        }
+        res.json(recipe);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Ошибка загрузки рецепта' });
+    }
+});
+
+router.get('/slug/:slug', async (req, res) => {
     try {
         const recipe = await RecipeService.getBySlug(req.params.slug);
         if (!recipe) {
